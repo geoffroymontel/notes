@@ -42,7 +42,17 @@ rvm requirements
 ```
 
 ## Install Ruby & Rails
-Follow the instructions here :
+Remove ri & rdoc installation by default
+```
+subl .gemrc
+```
+and add the following lines :
+```
+install: --no-rdoc --no-ri
+update: --no-rdoc --no-ri
+```
+
+Then follow the instructions here :
 https://rvm.io/rvm/install/
 
 `~.bash_login` is not loaded by default on Ubuntu, so you need to edit `.bashrc` and add at the bottom :
