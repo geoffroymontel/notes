@@ -128,7 +128,7 @@ And uncomment the following lines :
 ```
 * Try a scaffold : 
 ```
-rails generate scaffold User name:string email:string  
+rails generate scaffold User name:string   email:string  
 rake db:migrate  
 rails s  
 ```
