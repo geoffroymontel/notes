@@ -74,33 +74,33 @@ sudo apt-get install pgadmin3
 ```
 * Change postgres user password and restart
 ```
-sudo -u postgres psql
-\password postgres
-<enter password twice>
-\q
-sudo /etc/init.d/postgresql reload
+sudo -u postgres psql  
+\password postgres  
+<enter password twice>  
+\q  
+sudo /etc/init.d/postgresql reload  
 ```
 
 ## Test the install
-Name of application: test_app
-Name of database user: test_app
-Password of database user: apple
-Name of database: test_app_development
+Name of application: test_app  
+Name of database user: test_app  
+Password of database user: apple  
+Name of database: test_app_development  
 
 ```
-sudo -u postgres createuser -P
-> Enter name of role to add: test_app
-> Enter password for new role: apple
-> Enter it again: apple
-> Shall the new role be a superuser? (y/n) n
-> Shall the new role be allowed to create databases? (y/n) n
-> Shall the new role be allowed to create more new roles? (y/n) n
-> Password: your-postgres-user-password
+sudo -u postgres createuser -P  
+> Enter name of role to add: test_app  
+> Enter password for new role: apple  
+> Enter it again: apple  
+> Shall the new role be a superuser? (y/n) n  
+> Shall the new role be allowed to create databases? (y/n) n  
+> Shall the new role be allowed to create more new roles? (y/n) n  
+> Password: your-postgres-user-password  
 
-sudo -u postgres createdb -O test_app test_app_development
-rails new test_app -d postgresql
-cd test_app
-bundle install
+sudo -u postgres createdb -O test_app test_app_development  
+rails new test_app -d postgresql  
+cd test_app  
+bundle install  
 ```
 
 * You have to edit the database.yaml file then
@@ -118,9 +118,9 @@ And uncomment the following lines :
 ```
 * Try a scaffold : 
 ```
-rails generate scaffold User name:string email:string
-rake db:migrate
-rails s
+rails generate scaffold User name:string email:string  
+rake db:migrate  
+rails s  
 ```
 And point your browser to 
 http://localhost:3000/users
