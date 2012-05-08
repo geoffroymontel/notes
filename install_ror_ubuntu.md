@@ -96,6 +96,26 @@ sudo -u postgres psql
 sudo /etc/init.d/postgresql reload  
 ```
 
+* change psql authentication
+```
+sudo vi /etc/postgresql/9.1/main/pg_hba.conf
+```
+
+Find the line :
+```
+local   all             all                                     peer
+```
+
+And replace it with :
+```
+local   all             all                                     md5
+```
+
+Then restart the server
+```
+sudo service postgresql restart
+```
+
 ## Test the install
 * Create a database
 Name of application: test_app  
@@ -124,18 +144,20 @@ cd test_app
 bundle install  
 ```
 
-* You have to edit the database.yaml file then
+* You have to store the password in your system :
 ```
-subl config/database.yml
+subl ~/.pgpass
 ```
+
 Add the password :
 ```
-  password: apple
+localhost:*:*:test_app:apple
 ```
-And uncomment the following lines :
+
+Then chmod and try to connect to your database, no password should be needed :
 ```
-  host: localhost
-  port: 5432
+chmod 0600 ~/.pgpass
+psql test_app_development -U test_app
 ```
 
 * Try a scaffold : 
@@ -145,7 +167,8 @@ rake db:migrate
 rails s  
 ```
 
-And point your browser to 
+And point your browser to :
+
 http://localhost:3000/users
 
 It should work!
