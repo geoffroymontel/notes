@@ -34,6 +34,11 @@ curl -L get.rvm.io | bash -s stable
 ```
 Then restarting your console.
 
+Make rvm ruby the default :
+```
+rvm use 1.9.3 --default
+```
+
 ## Install additional packages
 
 Follow what's written in :
@@ -92,6 +97,7 @@ sudo /etc/init.d/postgresql reload
 ```
 
 ## Test the install
+* Create a database
 Name of application: test_app  
 Name of database user: test_app  
 Password of database user: apple  
@@ -108,6 +114,11 @@ sudo -u postgres createuser -P
 > Password: your-postgres-user-password  
 
 sudo -u postgres createdb -O test_app test_app_development  
+```
+
+* Set up new Rails app
+
+```
 rails new test_app -d postgresql  
 cd test_app  
 bundle install  
@@ -126,18 +137,27 @@ And uncomment the following lines :
   host: localhost
   port: 5432
 ```
+
 * Try a scaffold : 
 ```
 rails generate scaffold User name:string   email:string  
 rake db:migrate  
 rails s  
 ```
+
 And point your browser to 
 http://localhost:3000/users
 
 It should work!
 
+# Extra bits
 
+## Install ffmpeg
+```
+sudo apt-get install ffmpeg
+```
 
-
-
+## Install imagemagick
+```
+sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+```
