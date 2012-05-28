@@ -23,7 +23,7 @@ MyApp::Application.routes.draw do
 Add a file `config\initializers\yourfile.rb` 
 and add the following lines 
 
-```
+```ruby
 Rails.application.config.before_initialize do
     YourClass::variable = ENV['environnement_variable']
 end
@@ -31,10 +31,37 @@ end
 
 Where YourClass is defined like :
 
-```
+```ruby
 class YourClass
   class << self
-    attr_accessor 'variable'
+    attr_accessor :variable
   end
 end
 ```
+
+or, better :
+
+```ruby
+class YourClass
+  cattr_accessor :variable
+end
+```
+
+
+## rollback a model 
+```
+bundle exec rake db:rollback
+bundle exec rails destroy model YourModel
+```
+
+## Need to return stg if it's been defined and not nil ?
+
+```
+return @token unless @token.nil?
+```
+
+## need to debug
+```
+logger.debug "blabla"
+```
+
