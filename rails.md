@@ -1,5 +1,34 @@
 # Ruby on Rails memo
 
+## Generate a new Rails project without test::unit, with postgres and git
+
+```bash
+rails new <your_project> --skip-test-unit --git --database=postgresql
+```
+
+## Ask Rails to create the database 
+Remove user and password for all environments in database.yml file, or
+```bash
+createuser the_user
+```
+
+```bash
+bundle exec rake db:create:all
+```
+
+## RSpec
+In Gemfile : 
+```ruby
+group :development, :test do
+  gem 'rspec-rails', '2.10.0'
+end
+```
+
+then 
+```bash
+rails generate rspec:install
+```
+
 ## Foreman hides the logs
 Add `STDOUT.sync = true` at the top of your `environments/development.rb`
 
@@ -50,7 +79,8 @@ end
 
 ## rollback a model 
 ```
-bundle exec rake db:rollback
+bundle exec rake db:rollback # single migration 
+bundle exec rake db:migrate VERSION=0 # to the beginning
 bundle exec rails destroy model YourModel
 ```
 
