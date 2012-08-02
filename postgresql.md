@@ -6,6 +6,11 @@ psql -l
 \l
 ```
 
+Changer de base dans psql
+```
+\connect autre-base
+```
+
 ## Commandes psql de base
 
 ```
