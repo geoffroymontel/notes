@@ -1,5 +1,12 @@
 # Ruby on Rails memo
 
+## CamelCase or underscore ?
+
+variable_name
+method_name
+ClassName
+CONSTANTNAME
+
 ## Generate a new Rails project without test::unit, with postgres and git
 
 ```bash
