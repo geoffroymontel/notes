@@ -1,5 +1,15 @@
 # Ruby on Rails memo
 
+## update Rails
+```
+gem update rails
+``
+
+or to update everything
+```
+gem update
+```
+
 ## CamelCase or underscore ?
 
 variable_name
@@ -100,5 +110,20 @@ return @token unless @token.nil?
 ## need to debug
 ```
 logger.debug "blabla"
+```
+
+## Annotations to the code
+You can annotate your code :
+
+```
+  # TODO: factor out model verification to a filter
+  # OPTIMIZE: optimize this
+  # FIXME: it's broken
+```
+
+and get all the annotations with :
+
+```
+bundle exec rake notes
 ```
 
